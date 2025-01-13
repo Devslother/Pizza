@@ -1,30 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Button from './components/Button/Button'
+import {MouseEvent} from 'react'
+import Input from './components/Input/Input'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+ const addCounter = (e: MouseEvent) => {
+	 console.log(e)
+ }
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
       <h1>Pizza</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Button onClick={addCounter}>Кнопка</Button>
+      <Button appearence='big' onClick={addCounter}>Кнопка</Button>
+      <Input placeholder='email' />
     </>
   )
 }
