@@ -1,0 +1,92 @@
+.all {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	/* Отступ между верхним и нижним рядами */
+}
+
+.head {
+	display: flex;
+	justify-content: space-between;
+	/* Разместить название слева и кнопку справа */
+	align-items: center;
+	/* Выравнивание по вертикали */
+}
+
+.name {
+	color: var(--text-color);
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	/* Центрирует иконку и текст */
+	gap: 8px;
+	/* Расстояние между иконкой и текстом */
+}
+
+.product {
+	display: flex;
+	justify-content: space-between;
+	/* Изображение слева, данные справа */
+	gap: 16px;
+	/* Отступ между изображением и данными */
+}
+
+.image img {
+	max-width: 512px;
+	/* Ограничить ширину изображения */
+	width: 100%;
+	/* Изображение адаптируется к размеру контейнера */
+	height: auto;
+	border-radius: 8px;
+	/* Закругленные углы изображения */
+}
+
+.data {
+	flex: 1;
+	/* Данные занимают оставшееся пространство */
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	/* Отступы между элементами данных */
+	font-size: 20px;
+	color: var(--text-color);
+	margin-left: 30px;
+}
+
+.line {
+	max-width: 512px;
+	display: flex;
+}
+
+.elem {
+	margin-right: 20px;
+}
+
+.data span {
+	font-weight: bold;
+	/* Выделить валюту */
+}
+
+.ingredients {
+	list-style-type: disc;
+	/* Добавляет маркеры */
+	padding-left: 16px;
+	/* Отступ для маркеров */
+	margin-top: 8px;
+	/* Отступ сверху */
+}
+
+.ingredients li {
+	font-size: 17px;
+	/* Размер текста */
+	color: var(--text-color);
+	/* Цвет текста */
+	margin-bottom: 4px;
+	/* Отступ между строками */
+}

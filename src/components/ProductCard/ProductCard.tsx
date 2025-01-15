@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 export default function ProductCard (props: ProductCardProps) {
 	return (
-		<Link to={'/'} className={styles.link}>
+		<Link to={`/product/${props.id}`} className={styles.link}>
 		<div className={styles.card}>
 			<div className={styles.head} style={{backgroundImage: `url('${props.image}')`}}>
 				<div className={styles.price}>
@@ -21,7 +21,7 @@ export default function ProductCard (props: ProductCardProps) {
 			</div>
 		
 			<div className={styles.footer}>
-				<div className={styles.title}>{props.title}</div>
+				<div className={styles.name}>{props.name}</div>
 				<div className={styles.description}>{props.description}</div>
 			</div>
 			</div>
