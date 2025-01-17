@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Await, useLoaderData } from 'react-router';
+import { Await, useLoaderData } from 'react-router-dom';
 import type { Product } from '../../interfaces/product.interface';
 import styles from './Product.module.css'
 import Button from '../../components/Button/Button';

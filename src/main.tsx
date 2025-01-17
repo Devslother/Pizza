@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router'
@@ -7,18 +7,20 @@ import { Cart } from './pages/Cart/Cart'
 import { Error } from './pages/Error/Error'
 import { Layout } from './Layout/Layout'
 import { Product } from './pages/Product/Product'
-import { productLoader } from './pages/Product/ProductLoader'
-import { menuLoader } from './pages/Menu/menuLoader'
+import { productLoader } from './pages/Product/productLoader'
+import { AuthLayout } from './Layout/AuthLayout/AuthLayout'
+import { Login } from './pages/Login/Login'
+import { Register } from './pages/Register/Register'
+import { RequireAuth } from './helpers/RequireAuth'
 
 const router = createBrowserRouter([
   {
     path: '/', 
-    element: <Layout />,
+    element: <RequireAuth><Layout /></RequireAuth>,
     children: [
       {
         path: '/',
         element: <Menu />,
-        loader: menuLoader,
       },
       {
         path: '/cart',
@@ -33,6 +35,20 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: '/auth',
+    element: <AuthLayout />,
+    children: [
+      {
+        path: 'login',
+        element: <Login />
+      },
+      {
+        path: 'register',
+        element: <Register />,
+      }
+    ]
+  },
+  {
     path: '*',
     element: <Error />,
   },
@@ -40,6 +56,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Suspense fallback={<div>Загрузка...</div>}>
+      <RouterProvider router={router} />
+    </Suspense>
   </StrictMode>
-)
+);
