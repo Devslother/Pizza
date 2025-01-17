@@ -1,7 +1,7 @@
 import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Menu } from './pages/Menu/Menu'
 import { Cart } from './pages/Cart/Cart'
 import { Error } from './pages/Error/Error'
