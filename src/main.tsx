@@ -1,4 +1,4 @@
-import { StrictMode, Suspense } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -12,6 +12,8 @@ import { AuthLayout } from './Layout/AuthLayout/AuthLayout'
 import { Login } from './pages/Login/Login'
 import { Register } from './pages/Register/Register'
 import { RequireAuth } from './helpers/RequireAuth'
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 
 const router = createBrowserRouter([
   {
@@ -56,8 +58,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Suspense fallback={<div>Загрузка...</div>}>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </Suspense>
+    </Provider>
   </StrictMode>
 );
