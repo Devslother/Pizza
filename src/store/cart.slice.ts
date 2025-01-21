@@ -24,11 +24,24 @@ export const cartSlice = createSlice({
 			const existed = state.items.find(i => i.id === action.payload);
 			if (!existed) {
 				state.items.push({ id: action.payload, count: 1 });
-		} else {
+			} else {
 				existed.count += 1;
 			}
-		}
-	},
+		},
+		decrease: (state, action: PayloadAction<number>) => {
+			const existed = state.items.find(i => i.id === action.payload);
+			if (existed) {
+				existed.count -= 1;
+
+				if (existed.count === 0) {
+					state.items = state.items.filter(item => item.id !== action.payload);
+				}
+			}
+		},
+		remove: (state, action: PayloadAction<number>) => {
+			state.items = state.items.filter(item => item.id !== action.payload);
+		},
+	}
 });
 
 export default cartSlice.reducer;
