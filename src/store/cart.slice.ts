@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { loadState } from './storage';
+import { RootState } from './store';
 
 export const CART_PERSISTION_STATE = 'cartData'
 
@@ -46,3 +47,10 @@ export const cartSlice = createSlice({
 
 export default cartSlice.reducer;
 export const cartActions = cartSlice.actions;
+
+export const selectCartItems = (state: RootState) => state.cart.items;
+
+export const selectTotalCount = createSelector(
+	selectCartItems,
+	(items) => items.reduce((acc, item) => acc + item.count, 0)
+);

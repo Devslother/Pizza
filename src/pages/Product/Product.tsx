@@ -3,9 +3,18 @@ import { Await, useLoaderData } from 'react-router-dom';
 import type { Product } from '../../interfaces/product.interface';
 import styles from './Product.module.css'
 import Button from '../../components/Button/Button';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store/store';
+import { cartActions } from '../../store/cart.slice';
+
 
 export function Product() {
   const { data } = useLoaderData() as { data: Promise<Product> };
+  const dispatch = useDispatch<AppDispatch>();
+
+  const add = (id: number) => {
+  dispatch(cartActions.add(id)); 
+};
 
   return (
     <Suspense fallback={<>Загрузка...</>}>
@@ -16,6 +25,7 @@ export function Product() {
               <div className={styles.name}>{product.name}</div>
              <Button 
               className={styles.button} 
+              onClick={() => add(product.id)}
               >
                 <img src='/cart.svg' alt='csrt' />
                 В корзину

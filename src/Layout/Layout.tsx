@@ -6,13 +6,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../store/store'
 import { getProfile, userActions } from '../store/user.slice'
 import { useEffect } from 'react'
+import { selectTotalCount } from '../store/cart.slice'
 
 
 export function Layout () {
-	const navigate = useNavigate()
-	const dispatch = useDispatch<AppDispatch>()
+	const navigate = useNavigate();
+	const dispatch = useDispatch<AppDispatch>();
 	const profile = useSelector((s: RootState) => s.user.profile);
-	const items = useSelector((s:RootState) => s.cart.items)
+	const totalCount = useSelector(selectTotalCount);
 
 	useEffect(()=> {
 		dispatch(getProfile())
@@ -39,7 +40,7 @@ export function Layout () {
 		<NavLink to='/cart' className={({isActive}) => cn(styles['link'], {[styles.active] : isActive})}>
 			<img src="/cart.svg" alt="Корзина" />
 			Корзина
-			<span className={styles.cartcount}>{items.reduce((acc, item) => acc += item.count, 0)}</span>
+			<span className={styles.cartcount}>{totalCount}</span>
 		</NavLink>
 		</div>  
 		<Button className={styles.exit} onClick={logout}>

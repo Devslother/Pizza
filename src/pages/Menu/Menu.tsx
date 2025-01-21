@@ -41,7 +41,7 @@ export function Menu () {
 	return <>
 		<div className={styles.head}>
 			<Headling>Menu</Headling>
-			<Search placeholder='Введите блюдо или состав' onChange={updateFilter} />
+			<Search placeholder='Введите блюдо или состав' id='search' onChange={updateFilter} />
 		</div>
 
     <div>
