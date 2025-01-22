@@ -52,33 +52,5 @@ export function Menu () {
     </div>
 	</>
 }
-  
-  /*const filterProducts = initialProducts.filter((product) => {
-    const query = search.toLowerCase();
-    const nameMatches = product.name.toLowerCase().includes(query);
-    const ingredientsMatch = product.ingredients.some((ingredient) =>
-      ingredient.toLowerCase().includes(query)
-    );
-    return nameMatches || ingredientsMatch;
-  });
-
-	return <>
-      <div className={styles.head}>
-        <Headling>Menu</Headling>
-        <Search
-          placeholder="Введите блюдо или состав"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
-
-     <div>
-        {filterProducts.length > 0 ? (
-          <MenuList products={filterProducts} />
-        ) : (
-          <>Ничего не найдено</>
-        )}
-      </div> 
-    </>
-} */
 
     

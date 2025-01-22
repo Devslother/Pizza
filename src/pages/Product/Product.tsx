@@ -27,7 +27,7 @@ export function Product() {
               className={styles.button} 
               onClick={() => add(product.id)}
               >
-                <img src='/cart.svg' alt='csrt' />
+                <img src='/Pizza-app/cart.svg' alt='csrt' />
                 В корзину
               </Button>
             </div>
@@ -43,7 +43,7 @@ export function Product() {
                 <div className={styles.line}>
                   <div className={styles.elem}>Рейтинг</div>
                   <div>
-                    {product.rating}&nbsp;<img src='/star.svg' alt='star'/>
+                    {product.rating}&nbsp;<img src='/Pizza-app/star.svg' alt='star'/>
                   </div>
                 </div>
                 <div>

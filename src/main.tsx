@@ -15,7 +15,7 @@ import { RequireAuth } from './helpers/RequireAuth';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { Success } from './pages/Success/Success';
-import { BrowserRouter } from 'react-router-dom';
+
 
 const router = createBrowserRouter([
   {
@@ -59,14 +59,15 @@ const router = createBrowserRouter([
     path: '*',
     element: <Error />,
   },
-]);
+],{
+  basename: '/Pizza-app',
+});
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/repository-name"> 
-        <RouterProvider router={router} />
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </Provider>
   </StrictMode>
 );

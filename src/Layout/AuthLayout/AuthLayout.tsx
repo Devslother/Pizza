@@ -4,7 +4,7 @@ import { Outlet } from 'react-router'
 export function AuthLayout () {
 	return <div className={styles.layout}>
 	 	<div className={styles.logo}>
-			<img src="/pizzas.svg" alt="Pizza" />
+			<img src="/Pizza-app/pizzas.svg" alt="Pizza" />
 		</div>
 		<div className={styles.content}>
 			<Outlet />

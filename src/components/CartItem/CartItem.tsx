@@ -30,14 +30,14 @@ export default function CartItem (props: CartItemProps) {
 
 			<div className={styles.actions}>
 				<button className={styles.button} onClick={decrease}>
-					<img src='/minus.svg' alt='Удалить из корзины'/>
+					<img src='/Pizza-app/minus.svg' alt='Удалить из корзины'/>
 				</button>
 				<div className={styles.number}>{props.count}</div>
 				<button className={styles.button} onClick={increase}>
-					<img src='/plus.svg' alt='Добавить в корзину'/>
+					<img src='/Pizza-app/plus.svg' alt='Добавить в корзину'/>
 				</button>
 				<button className={styles.remove} onClick={remove}>
-					<img src='/close.svg' alt='Удалить все'/>
+					<img src='/Pizza-app/close.svg' alt='Удалить все'/>
 				</button>
 			</div>
 		</div>
