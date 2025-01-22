@@ -29,10 +29,26 @@
 	line-height: normal;
 }
 
+.totalcount {
+	color: #bebebe;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: normal;
+}
+
 .price {
 	color: var(--text-color);
 	font-size: 19px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
+}
+
+.checkout {
+	max-width: 512px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 70px;
 }

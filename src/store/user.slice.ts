@@ -5,7 +5,6 @@ import { LoginResponse } from '../interfaces/auth.interface';
 import { PREFIX } from '../helpers/API';
 import { Profile } from '../interfaces/user.interface';
 import { RootState } from './store';
-import { Login } from '../pages/Login/Login';
 
 export const JWT_PERSISTION_STATE = 'userData'
 

@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Headling } from '../../components/Headling/Headling';
-import { RootState } from '../../store/store';
+import { AppDispatch, RootState } from '../../store/store';
 import CartItem from '../../components/CartItem/CartItem';
 import { useEffect, useState } from 'react';
 import { Product } from '../../interfaces/product.interface';
@@ -9,7 +9,8 @@ import { PREFIX } from '../../helpers/API';
 import styles from './Cart.module.css'
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import { selectTotalCount } from '../../store/cart.slice';
+import { cartActions, selectTotalCount } from '../../store/cart.slice';
+import { useNavigate } from 'react-router-dom';
 
 export function Cart () {
 	const[cardPropsoducts, setCardProducts] = useState<Product[]>([]);
@@ -18,6 +19,9 @@ export function Cart () {
 	const items = useSelector((s: RootState) => s.cart.items);
 	const DELIVERY_FIX = 169;
 	const totalCount = useSelector(selectTotalCount);
+	const jwt = useSelector((s:RootState) => s.user.jwt);
+	const dispatch = useDispatch<AppDispatch>();
+	const navigate = useNavigate();
 
 	const getItem = async (id: number) => {
 		const {data} = await axios.get<Product>(`${PREFIX}/products/${id}`)
@@ -55,6 +59,18 @@ export function Cart () {
 
 	const discountedTotal = Math.max(total - discount, 0);
 
+	const checkout = async () => {
+		await axios.post(`${PREFIX}/order`, {
+			products: items
+		}, {
+			headers: {
+			Authorization: `Bearer ${jwt}`
+			},
+		});
+		dispatch(cartActions.clean());
+		navigate('/success');
+	}
+
 	return<>
 		<Headling className={styles.headling}>Корзина</Headling>
 		
@@ -88,6 +104,10 @@ export function Cart () {
 		<div className={styles.line}>
 			<div className={styles.text}>Итог <span className={styles.totalcount}>({totalCount})</span></div>
 			<div className={styles.price}>{discount > 0 ? discountedTotal + DELIVERY_FIX : total + DELIVERY_FIX}&nbsp;<span>₽</span></div>
+		</div>
+
+		<div className={styles.checkout}>
+			<Button appearence='big' onClick={checkout}>Оформить</Button>
 		</div>
 	</>
 }
