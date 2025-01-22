@@ -27,24 +27,24 @@ export function Layout () {
 	return <div className={styles.layout}>
 	 <div className={styles.sidebar}>
 		<div className={styles.user}>
-			<img className={styles.avatar} src="/Pizza-app/avatar.png" alt="Аватар" />
+			<img className={styles.avatar} src="/avatar.png" alt="Аватар" />
 			<div className={styles.name}>{profile?.name}</div>
 			<div className={styles.email}>{profile?.email}</div>
 		</div>
 		<div className={styles.menu}>
 		<NavLink to='/' className={({isActive}) => cn(styles['link'], {[styles.active] : isActive})}>
-			<img src="/Pizza-app/menu.svg" alt="Меню" />
+			<img src="/menu.svg" alt="Меню" />
 				Меню
 		</NavLink>
 
 		<NavLink to='/cart' className={({isActive}) => cn(styles['link'], {[styles.active] : isActive})}>
-			<img src="/Pizza-app/cart.svg" alt="Корзина" />
+			<img src="/cart.svg" alt="Корзина" />
 			Корзина
 			<span className={styles.cartcount}>{totalCount}</span>
 		</NavLink>
 		</div>  
 		<Button className={styles.exit} onClick={logout}>
-			<img src="/Pizza-app/turn.svg" alt="Выход" />
+			<img src="/turn.svg" alt="Выход" />
 			Выйти
 		</Button>
 	</div>

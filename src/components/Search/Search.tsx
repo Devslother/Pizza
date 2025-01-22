@@ -13,7 +13,7 @@ const Search = forwardRef<HTMLInputElement, SearchProps>(function Search({classN
 				[styles['invalid']]: !isValid,
 			})}
 		/>
-			<img className={styles.icon} src='/Pizza-app/search.svg' alt='search' />
+			<img className={styles.icon} src='/search.svg' alt='search' />
 		</div>	
 	)	
 })

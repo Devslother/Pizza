@@ -59,9 +59,7 @@ const router = createBrowserRouter([
     path: '*',
     element: <Error />,
   },
-],{
-  basename: '/Pizza-app',
-});
+]);
 
 
 createRoot(document.getElementById('root')!).render(

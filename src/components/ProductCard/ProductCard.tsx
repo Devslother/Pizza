@@ -23,11 +23,11 @@ export default function ProductCard (props: ProductCardProps) {
 					<span className={styles.currency}>₽</span>
 				</div>
 				<button className={styles['add-to-cart']} onClick={add}>
-					<img src='/Pizza-app/cart.svg' alt='Cart'/>
+					<img src='/cart.svg' alt='Cart'/>
 				</button>
 				<div className={styles.rating}>
 					{props.rating}&nbsp;
-					<img src="/Pizza-app/star.svg" alt="Star" />
+					<img src="/star.svg" alt="Star" />
 				</div>
 			</div>
 		

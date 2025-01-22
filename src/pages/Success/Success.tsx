@@ -6,7 +6,7 @@ export function Success () {
 	const navigate = useNavigate()
 	return (
 		<div className={styles.success}>
-			<img src="/Pizza-app/product.png" alt="Блюдо" />
+			<img src="/product.png" alt="Блюдо" />
 			<div className={styles.text}>Ваш заказ успешно оформлен!</div>
 			<Button appearence='big' onClick={() => navigate('/')}>Сделать новый</Button>
 		</div>
