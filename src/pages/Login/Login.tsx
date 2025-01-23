@@ -46,13 +46,13 @@ export function Login() {
 		{loginErrorMessage && <div className={styles.error}>{loginErrorMessage}</div>}
 		<form className={styles.form} onSubmit={submit}>
 		<div className={styles.field}>
-			<label htmlFor='email'>Ваш email</label>
-			<Input id='email' name='email' placeholder='email' />
+			<label htmlFor='email'>email</label>
+			<Input id='email' name='email' placeholder='ema@mail.com' />
 		</div>
 
 		<div className={styles.field}>
-			<label htmlFor='password'>Ваш пароль</label> 
-			<Input id='password' name='password' type='password' placeholder='пароль' />
+			<label htmlFor='password'>Пароль</label> 
+			<Input id='password' name='password' type='password' />
 		</div>
 		<Button appearence='big'>Вход</Button>
 		</form>

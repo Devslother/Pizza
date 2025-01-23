@@ -45,18 +45,18 @@ export function Register() {
 		{registerErrorMessage && <div className={styles.error}>{registerErrorMessage}</div>}
 		<form className={styles.form} onSubmit={submit}>
 		<div className={styles.field}>
-			<label htmlFor='email'>Ваш email</label>
-			<Input id='email' name='email' placeholder='email' />
+			<label htmlFor='email'>email</label>
+			<Input id='email' name='email' placeholder='ema@mail.com' />
 		</div>
 
 		<div className={styles.field}>
-			<label htmlFor='password'>Ваш пароль</label> 
-			<Input id='password' name='password' type='password' placeholder='пароль' />
+			<label htmlFor='password'>Пароль</label> 
+			<Input id='password' name='password' type='password' />
 		</div>
 
 		<div className={styles.field}>
-			<label htmlFor='name'>Ваше имя</label> 
-			<Input id='name' name='name' placeholder='имя' />
+			<label htmlFor='name'>Имя</label> 
+			<Input id='name' name='name' />
 		</div>
 
 		<Button appearence='big'>Зарегистрироваться</Button>
