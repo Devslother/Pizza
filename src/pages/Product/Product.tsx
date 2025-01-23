@@ -1,11 +1,12 @@
 import { Suspense } from 'react';
-import { Await, useLoaderData } from 'react-router-dom';
+import { Await, NavLink, useLoaderData } from 'react-router-dom';
 import type { Product } from '../../interfaces/product.interface';
 import styles from './Product.module.css'
 import Button from '../../components/Button/Button';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store/store';
 import { cartActions } from '../../store/cart.slice';
+import cn from 'classnames'
 
 
 export function Product() {
@@ -22,12 +23,16 @@ export function Product() {
         {(product: Product) => (
           <div className={styles.all}>
             <div className={styles.head}>
+              <NavLink to='/' className={({isActive}) => cn(styles['link'], {[styles.active] : isActive})}>
+                <img src="/exit.svg" alt="return" />
+                В Меню
+              </NavLink>
               <div className={styles.name}>{product.name}</div>
              <Button 
               className={styles.button} 
               onClick={() => add(product.id)}
               >
-                <img src='/cart.svg' alt='csrt' />
+                <img src='/cart.svg' alt='cart' />
                 В корзину
               </Button>
             </div>

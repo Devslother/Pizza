@@ -13,6 +13,22 @@
 	/* Выравнивание по вертикали */
 }
 
+.link {
+	text-decoration: none;
+	color: var(--text-color);
+	display: inline-flex;
+	/* Расположить элементы в строку */
+	align-items: center;
+	/* Выравнивание по вертикали */
+}
+
+.link img {
+	vertical-align: middle;
+	/* Центрируем изображение относительно текста */
+	margin-right: 0.5rem;
+	/* Пробел между изображением и текстом */
+}
+
 .name {
 	color: var(--text-color);
 	font-size: 30px;
